@@ -1,0 +1,107 @@
+.content { 
+    padding: 16px; 
+  }
+  
+  .content > mat-card { 
+    width: 200px; 
+  }
+  table {
+    width: 100%;
+  }
+  
+  .example-first-header-row th {
+    border-bottom: none;
+  }
+  
+  .example-second-header-row {
+    font-style: italic;
+  }
+  
+  .example-first-footer-row {
+    font-weight: bold;
+  }
+  
+  .example-second-footer-row td {
+    color: #900000;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
+  .example-flex-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+  .example-button-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 120px;
+  }
+
+  #nameList{
+    margin-left:auto;
+    margin-right:auto; 
+    font-size:2em ; 
+    font-style: italic;
+
+  }
+
+  #userDisplayName{
+    margin-left:auto; 
+    padding-right: 10%;
+    font-size:1.2em ; 
+    font-style: italic;
+
+  }
+  #userEmail{
+    margin-right: auto; 
+    font-size:0.6em
+  }
+
+  

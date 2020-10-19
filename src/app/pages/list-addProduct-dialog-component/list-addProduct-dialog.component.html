@@ -1,0 +1,55 @@
+<div mat-dialog-title>Añade un Producto</div>
+<div mat-dialog-headers></div>
+
+<!--Seccion superior que coge los tipos de productos-->
+<div mat-dialog-content>
+    <mat-divider></mat-divider>
+    <div class="menu-list-divider">Tipos de productos:  <span style="font: size 20px;">{{selectedType|uppercase}}</span></div>
+    <section>
+
+        <div class="example-flex-container"  *ngFor="let typeproduct of listTypeProducts ">
+            <div class="example-button-container">
+                <button *ngIf="typeproduct === selectedType" mat-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="loadProductsByType(typeproduct)">
+                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
+                    <p>{{typeproduct}}</p>
+                </button>
+                 
+                  <!--Si no esta seleccionado se queda en gris-->
+                <button *ngIf="typeproduct !== selectedType" mat-fab  color="accent" aria-label="Example icon button with a plus one icon" class="not-focus-type" (click)="loadProductsByType(typeproduct)">
+                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
+                    <p>{{typeproduct}}</p>
+                </button>
+                  
+            </div> 
+          
+        </div>
+
+    </section>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <div class="menu-list-divider">Productos</div>
+    <section *ngIf="selectedType!=null || selectedType==''" >
+
+        <div class="example-flex-container"  *ngFor="let productsByType of listByProductType">
+            <div class="example-button-container">
+                <button mat-fab color="accent" aria-label="Example icon button with a plus one icon"(click)="openConfirmDialog(productsByType)">
+                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
+                  </button><p>{{productsByType.name}}</p>
+            </div>
+           
+           
+        </div>
+
+    </section>
+
+
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onNoClick()" >Cancelar</button>
+    <!--Si el campo esta vacio deshabilito el boton-->    
+   <!-- <span *ngIf="this.datProduct.email!=null || this.datProduct.email!=undefined"><button  mat-button cdkFocusInitial  >Crear Lista</button></span>-->
+    
+</div>

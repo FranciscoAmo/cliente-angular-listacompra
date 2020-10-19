@@ -1,0 +1,26 @@
+
+<mat-list>
+  <div class="menu-list-divider">Usuario  </div>
+    <mat-list-item>
+        <mat-icon class="fa mat-mini-fab "  ><i class="fas fa-user fa-lg" ></i></mat-icon><p>  {{displayName}}</p>
+    </mat-list-item>
+  <div class="menu-list-divider"> Listas Disponibles </div>
+
+<div *ngIf="lista!=undefined">
+    <mat-list-item *ngFor="let lista1 of lista['list']" [routerLink]="['list/',lista1._id]" (click)="sendListForm(lista1._id)">
+     
+      <i   class="fa mat-mini-fab " matBadge="{{lista1.products.length}}" matBadgeColor="info" ><i class="fas fa-clipboard-check fa-lg" ></i></i><p>{{lista1.nameList}}</p>
+  
+    </mat-list-item>
+</div>
+<div  *ngIf="lista==undefined" >
+  <p>Cargando Listas.....</p>
+</div>
+
+  <div class="menu-list-divider"> Crear Una Lista</div>
+    <mat-list-item (click)="openDialog()">
+      <i class="fa mat-mini-fab"><i class="fas fa-plus fa-lg"  ></i></i><p>Nueva Lista</p>
+    </mat-list-item>
+
+  
+</mat-list>

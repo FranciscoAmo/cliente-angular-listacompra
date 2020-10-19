@@ -1,0 +1,29 @@
+.example-flex-container {
+    display: -webkit-inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:15px
+  }
+  .example-button-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50px;
+    padding: 15px
+    
+  }
+
+  .menu-list-divider {
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    color: #202020;
+    font-size: 15px;
+    background-color: #d3d3d3;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .not-focus-type{
+       
+        filter:blur(1px);
+}

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Añade usuario a la Lista</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>   Introduce el email del usuario a añadir      </mat-label>
+          <input matInput [(ngModel)]="data.email">
+      </mat-form-field>
+    </div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onNoClick()" >Cancelar</button>
+    <!--Si el campo esta vacio deshabilito el boton-->    
+    <span *ngIf="this.data.email!=null || this.data.email!=undefined"><button  mat-button [mat-dialog-close]="data.email"  cdkFocusInitial  >Añadir al Usuario</button></span>
+    
+</div>

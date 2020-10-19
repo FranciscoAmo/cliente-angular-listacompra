@@ -1,0 +1,25 @@
+
+
+{
+    "/product/*":{
+        "target": "http://localhost:3000",
+        "secure": false,
+        "changeOrigin": false,
+        "logLevel": "debug"
+      
+    },
+    "/lista/*":{
+        "target": "http://localhost:3000",
+        "secure": false,
+        "changeOrigin": false,
+        "logLevel": "debug"
+      
+    },
+    "/login/*":{
+        "target": "http://localhost:3000",
+        "secure": false,
+        "changeOrigin": false,
+        "logLevel": "debug"
+      
+    }
+}

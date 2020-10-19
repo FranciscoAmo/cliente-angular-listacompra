@@ -1,0 +1,22 @@
+<div *ngIf="lista!==undefined">
+  <div *ngFor=" let listacargada of lista['list']">
+  <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> Nombre de la Lista:   {{listacargada.nameList}}</mat-card-title>
+        <mat-card-subtitle>Fecha:   {{listacargada.createdDate}}</mat-card-subtitle>
+        <mat-card-subtitle>Usuarios adheridos: {{listacargada.associatedUsers.length -1}}</mat-card-subtitle>
+      </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+      <mat-card-content >
+        <mat-card-title-group>Productos:         cantidad-productos: {{listacargada.products.length}}</mat-card-title-group>
+        <div *ngFor="let product of listacargada.product">
+        <mat-card-subtitle>
+          {{product.product.name}} 
+        </mat-card-subtitle>
+      </div>
+      </mat-card-content>
+      
+    </mat-card>
+  </div>
+</div>
