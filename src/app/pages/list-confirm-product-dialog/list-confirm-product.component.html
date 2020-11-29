@@ -1,16 +1,16 @@
-<h1 mat-dialog-title>Indica la cantidad del Producto:       {{dataConfirm.prodSelected.name}} </h1>
+<h1 mat-dialog-title class="divider d-flex"><i class="fas fa-clipboard-list fa-lg" ></i>  Indica la cantidad del Producto:       {{dataConfirm.prodSelected.name}} </h1>
 <div mat-dialog-content>
-    <mat-form-field>
+    <mat-form-field class="d-flex alienacion">
         
-        <mat-label>   cantidad a usar    </mat-label>
-          <input matInput type="number" [(ngModel)]="dataConfirm.quantitySelected"><div> : {{ dataConfirm.prodSelected.med}} </div>
+        <mat-label>   Cantidad    </mat-label>
+          <p><input class="ancho" matInput type="number" [(ngModel)]="dataConfirm.quantitySelected" min="1">{{ dataConfirm.prodSelected.med |uppercase}} </p>
       </mat-form-field>
     </div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close (click)="onNoClick()" >Cancelar</button>
     <!--Si el campo esta vacio deshabilito el boton-->    
     <span *ngIf="this.dataConfirm.quantitySelected != null || this.dataConfirm.quantitySelected != undefined ">
-        <button  mat-button [mat-dialog-close]="dataConfirm.quantitySelected "  cdkFocusInitial  >Añadir al Usuario
+        <button  mat-button [mat-dialog-close]="dataConfirm.quantitySelected "  cdkFocusInitial  >Añadir al Carro
         </button>
     </span>
     

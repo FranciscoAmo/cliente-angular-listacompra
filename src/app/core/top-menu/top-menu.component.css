@@ -1,4 +1,6 @@
 .header_logo {
+    position: relative;
+    align-items: center;
     padding: 0px;
     font-size: 18px !important;
     margin-left: 0px;

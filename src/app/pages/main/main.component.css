@@ -1,0 +1,19 @@
+.nameList{
+    color:rgb(15, 15, 132);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.divider{
+    background-color: rgba(23, 80, 186, 0.401);
+    color:rgb(255, 255, 255);
+    margin-left: 5px ;
+    margin-right: 5px;
+    padding-left: 20px;
+  
+  }
+
+  .font-size{
+    
+    font-size: 1.5em;
+  }

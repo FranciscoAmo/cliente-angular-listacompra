@@ -73,3 +73,27 @@
     background-color: #34579c;
     color: #fafafa;
 }
+
+
+.divider{
+    background-color: rgba(23, 80, 186, 0.401);
+    color:rgb(255, 255, 255);
+    margin-left: 5px ;
+    margin-right: 5px;
+    padding-left: 20px;
+    text-align: center;
+  }
+
+  
+  .font-size{
+    
+    font-size: 1.2em;
+  }
+
+  .nameList{
+     font-size: 1.2em;
+     padding: 5%;
+     font-weight: bold;
+     color: rgb(2, 2, 47);
+     font-family: Arial, Helvetica, sans-serif;
+  }

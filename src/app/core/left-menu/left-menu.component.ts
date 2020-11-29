@@ -7,6 +7,7 @@ import { SharedService } from 'src/app/service/shared.service';
 import { MatDialog } from '@angular/material';
 import { ListDialogComponent } from '../list-dialog/list-dialog.component';
 import { List } from 'src/app/model/lista.model';
+import { Router } from '@angular/router';
 
 
 // ESTE COMPONENTE CONTROLA LA MAYORIA DE LOS DATOS
@@ -34,6 +35,7 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
   // debo injectar el servicio de Listas
   constructor(private listservice: ListService,
               private gestlist: SharedService,
+              private  router: Router,
               public dialog: MatDialog) {
 
                 this.cargardatos();
@@ -72,8 +74,8 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
 
     }, (err) => {
       // obtengo el valor del mensage de error y lo muestro en una alerta
-        console.log(err.error.message);
-        alert(err.error.message);
+       // console.log(err.error.message);
+       // alert(err.error.message);
         // alert('error en el registro!');
     }
     );
@@ -107,7 +109,7 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
     // metodo de retorno que devuelve los valores
     dialogRef.afterClosed().subscribe(result => {
       // el resultado lo asigno a nameList y creo la lista
-      if (result !== null || result !== undefined) {
+      if (result.nameList !== null || result.nameList !== undefined) {
 
       this.nameList = result; // guardo el resultado en la variable
       console.log(this.nameList);
@@ -125,11 +127,17 @@ export class LeftMenuComponent implements OnInit, OnDestroy {
 
     }, (err) => {
       // obtengo el valor del mensage de error y lo muestro en una alerta
-        console.log(err.error.message);
-        alert(err.error.message);
+        // console.log(err.error.message);
+       // alert(err.error.message);
         // alert('error en el registro!');
     });
 
+  }
+
+  // navego al main
+  navigateMain(){
+
+    this.router.navigate(['/main/main']);
   }
 
 }

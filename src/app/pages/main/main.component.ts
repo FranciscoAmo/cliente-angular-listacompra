@@ -37,8 +37,8 @@ export class MainComponent implements OnInit {
 
     }, (err) => {
       // obtengo el valor del mensage de error y lo muestro en una alerta
-        console.log(err.error.message);
-        alert(err.error.message);
+        // console.log(err.error.message);
+       // alert(err.error.message);
         // alert('error en el registro!');
     }
     );

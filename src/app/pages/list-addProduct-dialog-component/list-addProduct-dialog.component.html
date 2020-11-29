@@ -4,21 +4,26 @@
 <!--Seccion superior que coge los tipos de productos-->
 <div mat-dialog-content>
     <mat-divider></mat-divider>
-    <div class="menu-list-divider">Tipos de productos:  <span style="font: size 20px;">{{selectedType|uppercase}}</span></div>
+    <div class="menu-list-divider font-size divider "> <i class="fas fa-clipboard-list fa-lg" ></i>  TIPOS DE PRODUCTOS:  <span style="font-size: 2em;">{{selectedType|uppercase}}</span></div>
+    
     <section>
 
-        <div class="example-flex-container"  *ngFor="let typeproduct of listTypeProducts ">
-            <div class="example-button-container">
-                <button *ngIf="typeproduct === selectedType" mat-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="loadProductsByType(typeproduct)">
-                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
-                    <p>{{typeproduct}}</p>
+        <div class="example-flex-container"  *ngFor="let typeproduct of listTypeProducts">
+            <div class="example-button-container d-flex justify-content-center">
+                <button *ngIf="typeproduct.name === selectedType" mat-icon-button  aria-label="" (click)="loadProductsByType(typeproduct.name)" >
+                    <img class="imagenes" [src]="typeproduct.url" alt="x" />
+                
+                    <p>{{typeproduct.name| uppercase}}</p>
                 </button>
                  
                   <!--Si no esta seleccionado se queda en gris-->
-                <button *ngIf="typeproduct !== selectedType" mat-fab  color="accent" aria-label="Example icon button with a plus one icon" class="not-focus-type" (click)="loadProductsByType(typeproduct)">
-                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
-                    <p>{{typeproduct}}</p>
+                <button *ngIf="typeproduct.name !== selectedType" mat-icon-button   aria-label="Example icon button with a plus one icon"  (click)="loadProductsByType(typeproduct.name)">
+                    <img class="imagenes not-focus-type" [src]="typeproduct.url" alt="x" />
+               
+                   
+                    <p class="">{{typeproduct.name | uppercase}}</p>
                 </button>
+               
                   
             </div> 
           
@@ -26,16 +31,19 @@
 
     </section>
     <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <mat-divider></mat-divider>
-    <div class="menu-list-divider">Productos</div>
+
+
+    <div class="menu-list-divider font-size divider "> <i class="fas fa-clipboard-list fa-lg" ></i>  PRODUCTOS</div>
     <section *ngIf="selectedType!=null || selectedType==''" >
 
         <div class="example-flex-container"  *ngFor="let productsByType of listByProductType">
-            <div class="example-button-container">
-                <button mat-fab color="accent" aria-label="Example icon button with a plus one icon"(click)="openConfirmDialog(productsByType)">
-                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
-                  </button><p>{{productsByType.name}}</p>
+            <div class="example-button-container d-flex justify-content-center">
+                <button mat-icon-button color="basic" aria-label="Example icon button with a plus one icon"(click)="openConfirmDialog(productsByType)" >
+                   
+                    <img class="imagen-carrito" [src]="'../../assets/images/tipos/carrito.png'" alt="x" />
+                    <p class="padding-products"> {{productsByType.name | uppercase}}</p>
+                </button>
+                
             </div>
            
            

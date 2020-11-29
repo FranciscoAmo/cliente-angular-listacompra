@@ -38,9 +38,22 @@ export class ListAddProductDialogComponent implements OnInit {
     listAllProduct: Product[];
 
     // array de tipos de productos
-  listTypeProducts: string[] = [ 'verdura', 'legumbre', 'fruta', 'lacteo', 'carne',
-                                'pescado', 'helado', 'limpieza', 'higiene', 'detergente', 'aperitivo', 'condimento', 'bebida'];
+ listTypeProducts = [{name: 'verdura', url: '../../assets/images/tipos/vegetales.png'},
+                     {name: 'legumbre', url: '../../assets/images/tipos/legumbres.png'},
+                     {name: 'fruta', url: '../../assets/images/tipos/fruta.png'},
+                     {name: 'lacteo', url: '../../assets/images/tipos/lacteos.png'},
+                     {name: 'carne', url: '../../assets/images/tipos/carne.png'},
+                     {name: 'pescado', url: '../../assets/images/tipos/pescado.png'},
+                     {name: 'helado', url: '../../assets/images/tipos/helado.png'},
+                     {name: 'limpieza', url: '../../assets/images/tipos/limpieza.png'},
+                     {name: 'higiene', url: '../../assets/images/tipos/higiene.png'},
+                     {name: 'detergente', url: '../../assets/images/tipos/detergente.png'},
+                     {name: 'condimento', url: '../../assets/images/tipos/condimentos.png'},
+                     {name: 'bebida',  url: '../../assets/images/tipos/bebida.png'}];
 
+  listTypeImages: string[] = ['../../assets/images/logo.png'];
+
+ 
      // array donde cargare los productos del tipo
   listByProductType: Product[] = null;
       // variable del producto seleccionado

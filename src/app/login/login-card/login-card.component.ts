@@ -16,21 +16,22 @@ import { ListService } from '../../service/list.service';
       [
         state('true', style({ opacity: 1 })),
         state('false', style({ opacity: 0.3 })),
-        transition('1 => 0', animate('900ms', style({ opacity: 0.3 }))),
-        transition('0 => 1', animate('900ms', style({ opacity: 1 })))
+        transition('1 => 0', animate('700ms', style({ opacity: 0.3 }))),
+        transition('0 => 1', animate('700ms', style({ opacity: 1 })))
       ])
   ]
 })
 export class LoginCardComponent implements OnInit {
 
   loginlogup = false;
-  logtext = " LogUp";
+  logtext = "REGISTRARSE";
+  existeUsuario: boolean= true;
 
 
   backgrounds = [
-    { main: 'https://drive.google.com/uc?id=1wsk0lus_UmgB1x7YBHZ30PHhd59oI_QJ', blur: 'https://drive.google.com/uc?id=13sGmUKF193j2BDrvOtAuGMV27mEe5HSE' },
-    { main: 'https://drive.google.com/uc?id=1hSNFcWC5LECKPbws1cMJfcmVGiXPe40v', blur: 'https://drive.google.com/uc?id=1uf_L2Ms1uGLXMgN5WCrUj0zTVdxN-g2p' },
-    { main: 'https://drive.google.com/uc?id=13XuzG26KujCSlAqGwAnXMtjNqx5mxYFA', blur: 'https://drive.google.com/uc?id=13nbhGXFU0icwZ1llfTDAFap0r36SbRXX' }
+    { main: "../../assets/images/loginmarket1.jpeg", blur: '../../assets/images/loginmarket3.jpeg' },
+    { main: '../../assets/images/loginmarket2.jpeg', blur: '../../assets/images/loginmarket3.jpeg' },
+    //{ main: 'https://drive.google.com/uc?id=13XuzG26KujCSlAqGwAnXMtjNqx5mxYFA', blur: 'https://drive.google.com/uc?id=13nbhGXFU0icwZ1llfTDAFap0r36SbRXX' }
   ];
   backgroundIndex = Math.floor(Math.random() * this.backgrounds.length) + 0;
   secondsToChange = 50;
@@ -81,6 +82,7 @@ export class LoginCardComponent implements OnInit {
           }).subscribe( (datos1: any[]) => {
             // si todo esta correcto el token de vuelta lo guardo en la memoria del navegador
              // console.log(datos1['token']);
+              this.existeUsuario = true;
               this.listservice.savetoken(datos1['token']);
               localStorage.setItem('displayName', datos1['user']);
               this._router.navigate([`/main/main`]);
@@ -91,7 +93,8 @@ export class LoginCardComponent implements OnInit {
           }, (err) => {
             // obtengo el valor del mensage de error y lo muestro en una alerta
               console.log(err);
-              alert(err.error.message);
+              this.existeUsuario = false;
+              //alert(err.error.message);
               // alert('error en el registro!');
           }
           );
@@ -101,7 +104,7 @@ export class LoginCardComponent implements OnInit {
 
  // si se realiza correctamente se muestra un mensaje y se registra
               // nos subcribimos para obtener el token de autentificacion del usuario
-
+             
               this.login.createUser({
 
                 email: this.loginGroup1.get('email').value,
@@ -112,7 +115,7 @@ export class LoginCardComponent implements OnInit {
               // si todo esta correcto el token de vuelta lo guardo en las cookies
                 console.log(datos1);
                 alert(datos1[ 'message' ]);
-
+                this.existeUsuario = true;
 
                 this.loginlogup =! this.loginlogup;  // cambia a logearse
             }, (err) => {
@@ -167,9 +170,10 @@ export class LoginCardComponent implements OnInit {
     this.loginlogup = !this.loginlogup;
     console.log(this.loginlogup);
     if (this.loginlogup === false) {
-      this.logtext = 'LogUp';
+      this.logtext = 'REGISTRARSE';
+      this.existeUsuario = true;
     } else {
-      this.logtext = 'LogIn';
+      this.logtext = 'ENTRAR';
     }
   }
 }

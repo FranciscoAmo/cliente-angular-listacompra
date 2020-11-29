@@ -1,23 +1,27 @@
 <mat-card class="login-card" (mouseover)='bluringBackground()' (mouseleave)='unbluringBackground()'>
   <div>
     
-    <button mat-fab-type="submit"  class="login-button mat-primary" (click)="LogIn_LogUp()">
-      <p >{{logtext}}</p><i class="fas fa-clipboard-check fa-lg"></i>
+    <button mat-fab-type="submit"  class="login-button mat-primary color-button" (click)="LogIn_LogUp()">
+      <p >{{logtext}}</p><i class="fas fa-exchange-alt fa-lg"></i>
     </button>
     
 </div>
   <div class="login_logo">
-    <img src="https://drive.google.com/uc?id=1UCuwEFL2_wANdGi7_6N7_xs5YDoBSzuq" alt="Lista Compra" title="LIstaCompra" />
+    <img src="../assets/images/logo.png" alt="Lista Compra" title="LIstaCompra" />
    
   </div>
+ 
   <div class="border-top-input" *ngIf="!loginlogup">
     <form [formGroup]="loginGroup" (submit)="loginSubmit(loginGroup)">
-    <h2>LogIn</h2>
+    <h2>Entrar</h2>
+    <div *ngIf="existeUsuario==false"><span class="noExistUser"> El usuario no existe</span></div>
       <mat-card-content>
         <mat-grid-list cols="1" rowHeight="60px">
-         
+
           <mat-grid-tile>
+           
             <mat-form-field>
+              
               <input matInput placeholder="Correo" formControlName="email">
               <mat-error *ngIf="loginGroup.get('email').hasError('required')">
                 El usuario es requerido
@@ -51,7 +55,7 @@
 
   <div class="border-top-input" *ngIf="loginlogup">
     <form [formGroup]="loginGroup1" (submit)="loginSubmit(loginGroup1)">
-      <h2>LogUp</h2>
+      <h2>Registrarse</h2>
       <mat-card-content>
         <mat-grid-list cols="1" rowHeight="60px">
           <mat-grid-tile>

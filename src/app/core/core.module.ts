@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
-import { MatToolbarModule, MatListModule, MatDividerModule, MatDialog } from '@angular/material';
+import { MatToolbarModule, MatListModule, MatDividerModule, MatDialog ,MatTooltipModule} from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { ListService } from '../service/list.service';

@@ -60,7 +60,7 @@ export class ListComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   // variables de la tabla de productos
   dataSource;
-  columnsToDisplay = ['name', 'tipo', 'precio', 'med', 'quantity'];
+  columnsToDisplay = ['name', 'tipo', 'precio', 'med', 'quantity','Total'];
   expandedElement: List | null;
 
 
@@ -105,7 +105,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
       console.log(this.listId);
       this.cargardatosMain(); // consulta en la base de datos cada 1000 milisegundos= 1 seg
-     // console.log(this.listLoad);
+      console.log(this.listLoad);
      // cargo la lista de productos en el product data
      // this.loadListProduct();
 
@@ -193,7 +193,7 @@ export class ListComponent implements OnInit {
     // metodo de retorno que devuelve los valores
     dialogRef.afterClosed().subscribe(result => {
       // el resultado lo asigno a nameList y creo la lista
-      if (result !== null || result !== undefined) {
+      if (result !== null || result !== undefined || result !== '') {
 
       this.email = result; // guardo el resultado en la variable
       console.log(this.email);
@@ -271,7 +271,10 @@ export class ListComponent implements OnInit {
 
     // añadir un producto a la lista !!!SIn COmpletar!!!!!
     addProduct() {
-        this.listservice.addProduct(null,null,this.listLoad._id).subscribe(); {
+        this.listservice.addProduct(null,null,this.listLoad._id).subscribe(data =>
+          
+          this.cargarDatos(this.listLoad._id)
+          ); {
 
         }
 

@@ -2,6 +2,7 @@
   "name": "proyecto-angular-listacompra-prueba",
   "version": "0.0.0",
   "scripts": {
+    "proxy":"ng serve --proxy-config proxy.conf.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

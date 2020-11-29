@@ -1,14 +1,14 @@
 
   <section *ngIf="cargadoInicial">
-    <div class="menu-list-divider"><span style="font-size: 20px;">Opciones</span> </div>
+    <div class="menu-list-divider font-size divider"><i class="fas fa-cog fa-lg" ></i> OPCIONES  </div>
     <section>
       
-      <div class="example-flex-container">
-        <div class="example-button-container">
-          <button mat-raised-button (click)=" openUserDialog()"><i class="fa mat-mini-fab"><i class="fas fa-user fa-lg" ></i></i><p>Añadir Usuario</p></button>
+      <div class="example-flex-container ">
+        <div class="example-button-container ">
+          <button mat-fab color="primary" class="icon-color" (click)=" openUserDialog()"><i class="fas fa-user fa-lg" ></i><p>Añadir Usuario</p></button>
         </div>
-        <div class="example-button-container">
-          <button mat-raised-button (click)=" eliminarUsuarioDeLista(listLoad._id)"> <i class="fa mat-mini-fab"><i class="fas fa-eraser fa-lg" ></i></i><p>Salir de la Lista</p></button>
+        <div class="example-button-container ">
+          <button mat-fab color="primary" class="icon-color" (click)=" eliminarUsuarioDeLista(listLoad._id)"> <i class="fas fa-eraser fa-lg" ></i><p>Salir de la Lista</p></button>
         </div>
       </div>
     </section>
@@ -18,16 +18,16 @@
         <mat-divider></mat-divider>
 
         <mat-list>
-          <div class="menu-list-divider">Nombre lista  </div>
+          <div class="menu-list-divider font-size divider"><i class="fas fa-tag fa-lg" ></i> NOMBRE LISTA  </div>
             <mat-list-item>
                 <p id="nameList" >{{listLoad.nameList}}</p>
             </mat-list-item>
 
             <mat-divider></mat-divider>
-            <div class="menu-list-divider">Usuarios de la lista  </div>
+            <div class="menu-list-divider font-size divider"><i class="fas fa-user-friends fa-lg" ></i> USUARIOS DE LA LISTA  </div>
             
             <mat-list-item *ngFor="let usuarios of listLoad.associatedUsers">
-                <p  id="userDisplayName">{{usuarios.displayName}}</p><p id="userEmail">{{usuarios.email}}</p>
+                <p  id="userDisplayName" >{{usuarios.displayName}}</p><p id="userEmail">{{usuarios.email}}</p>
             </mat-list-item>
             
 
@@ -37,25 +37,25 @@
 
   <section *ngIf="dataSource!==undefined  || dataSource!=null " >
       <mat-divider></mat-divider>
-        <div class="menu-list-divider">Productos 
+        <div class="menu-list-divider font-size divider "> <i class="fas fa-clipboard-list fa-lg" ></i> LISTA DE PRODUCTOS
           
-          <button mat-icon-button  aria-label="Example icon button with a delete icon" (click)="openProductDialog()">
-           <mat-icon>add_circle</mat-icon>
+          <button mat-fab color="primary"    aria-label="Example icon button with a delete icon" (click)="openProductDialog()">
+            <i class="fas fa-cart-arrow-down fa-lg" ></i>
         </button> 
       </div>
     
     <!-- inicio de Tabla de productos-->
 
-
-      <table mat-table  [dataSource]="dataSource" multiTemplateDataRows
-            class="mat-elevation-z8">
-            <!--cabecera de la tabla  carga columnas y datos principales-->
-        <ng-container matColumnDef="{{column}}" *ngFor=" let column of columnsToDisplay">
-          <th mat-header-cell *matHeaderCellDef > {{column|changeColumns}} </th>  
-    
-          <td mat-cell *matCellDef="let element, let element1"> {{element.product[column] }} {{element1[column]}}</td>
         
-       
+      <table mat-table  [dataSource]="dataSource" multiTemplateDataRows
+            class="mat-elevation-z8 padding " >
+            <!--cabecera de la tabla  carga columnas y datos principales-->
+        <ng-container  matColumnDef="{{column}}" *ngFor=" let column of columnsToDisplay" >
+          <th  [ngClass]=" column != 'name'?'product-name':'font-size' " class="font-size-labels" mat-header-cell *matHeaderCellDef > {{column|changeColumns}} </th>  
+         
+          <td  [ngClass]=" (column == 'name'|| column == 'Total')?'product-name':'font-size' " mat-cell    *matCellDef="let element, let element1 "> {{element.product[column]}} {{element1[column]}} <span *ngIf="column =='Total'">{{element.product.precio*element1.quantity}}  </span></td>
+
+         
         </ng-container>
 
         <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -64,16 +64,16 @@
             <div class="example-element-detail" 
                 [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
               
-             <div class="example-flex-container">
-                <div class="example-button-container">
-                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="removeProduct(element.product.name)">
-                    <mat-icon>delete_forever</mat-icon>
+             <div class="expand-buttons-container ">
+                <div class="expand-buttons ">
+                  <button mat-fab color="accent" aria-label="Example icon button with a delete icon" (click)="removeProduct(element.product.name)">
+                    <i class="fas fa-trash-alt" ></i>
                   </button>
                   <mat-label>Eliminar</mat-label>
                 </div>
-                <div class="example-button-container">
-                  <button mat-fab color="accent" aria-label="Example icon button with a plus one icon" (click)="openUpdateDialog(element.product)">
-                    <mat-icon>shopping_cart</mat-icon><mat-icon>swap_vert</mat-icon>
+                <div class="expand-buttons">
+                  <button mat-fab color="primary" aria-label="Example icon button with a plus one icon" (click)="openUpdateDialog(element.product)">
+                    <i class="fas fa-cart-arrow-down fa-lg" ></i>
                   </button>
                   <mat-label>Cambiar Cantidad</mat-label>
                 </div>

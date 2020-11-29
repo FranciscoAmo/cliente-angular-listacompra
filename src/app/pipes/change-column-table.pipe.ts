@@ -23,7 +23,9 @@ export class ChangeColumnsPipe implements PipeTransform {
                     return   'Cantidad';
 
             case 'precio':
-                    return   'Precio';
+                    return   'Precio Estimado';
+            case 'Total':
+                    return    'Total';        
         }
     }
 

@@ -6,24 +6,52 @@
   }
   .example-button-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 50px;
     padding: 15px
     
   }
 
-  .menu-list-divider {
-    width: 100%;
-    text-align: left;
-    padding: 5px;
-    color: #202020;
-    font-size: 15px;
-    background-color: #d3d3d3;
-    cursor: pointer;
-    font-weight: bold;
-}
+ 
 
     .not-focus-type{
        
         filter:blur(1px);
+}
+
+.imagenes{
+width:140%;
+
+height: 140%;
+
+
+}
+
+.boton-imagen{
+  color:transparent;
+
+}
+
+.padding-products{
+  margin-left: 2px;
+  align-items: center;
+
+}
+
+.font-size{
+    
+  font-size: 1.2em;
+}
+
+
+.divider{
+  background-color: rgba(23, 80, 186, 0.401);
+  color:rgb(255, 255, 255);
+  margin-left: 5px ;
+  margin-right: 5px;
+  padding-left: 20px;
+}
+.imagen-carrito{
+  width:120%;
+  height: 120%;
 }

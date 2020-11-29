@@ -24,7 +24,7 @@ export class ListDialogComponent  {
 
     // metodo para cerrar la referencia al dialogo modal
    onNoClick(): void {
-     this.data.nameList = undefined;
+     this.data.nameList = null;
      this.dialogRef.close();
   }
 

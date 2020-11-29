@@ -1,20 +1,17 @@
 <div *ngIf="lista!==undefined">
+  <div class="menu-list-divider font-size divider"><i class="fas fa-tag fa-lg" ></i> RESUMEN DE LISTAS </div>
   <div *ngFor=" let listacargada of lista['list']">
   <mat-card class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title> Nombre de la Lista:   {{listacargada.nameList}}</mat-card-title>
-        <mat-card-subtitle>Fecha:   {{listacargada.createdDate}}</mat-card-subtitle>
+        <mat-card-title > Nombre de la Lista:  <span class="nameList"> {{listacargada.nameList}}</span></mat-card-title>
+        <mat-card-subtitle>Fecha:   {{listacargada.createdDate|date:'dd-MM-yy hh:mm'}}</mat-card-subtitle>
         <mat-card-subtitle>Usuarios adheridos: {{listacargada.associatedUsers.length -1}}</mat-card-subtitle>
       </mat-card-header>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
       <mat-card-content >
-        <mat-card-title-group>Productos:         cantidad-productos: {{listacargada.products.length}}</mat-card-title-group>
-        <div *ngFor="let product of listacargada.product">
-        <mat-card-subtitle>
-          {{product.product.name}} 
-        </mat-card-subtitle>
-      </div>
+        <mat-card-title-group>Productos:         cantidad-productos:  <span class="nameList">{{listacargada.products.length}}</span></mat-card-title-group>
+      
       </mat-card-content>
       
     </mat-card>

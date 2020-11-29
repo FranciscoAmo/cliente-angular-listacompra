@@ -37,3 +37,15 @@
 .error {
     font-size: 12px;
 }
+
+.color-button{
+ background-color: rgb(70, 31, 199);
+ color:white;
+ border-radius: 10%;
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.noExistUser{
+    color: red;
+    font-size: 0.9em;
+}
